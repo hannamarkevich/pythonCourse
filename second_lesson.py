@@ -113,7 +113,6 @@ def enter_int(name):
 
 
 goods = []
-good = {}
 input_value = input("Press any value to add a new good (or 1 not to add):")
 number = 1
 while input_value != "1":
