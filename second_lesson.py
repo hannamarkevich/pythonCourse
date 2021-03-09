@@ -125,10 +125,9 @@ while input_value != "1":
     input_value = input("Press any value to add a new good (or 1 not to add):")
 print(goods)
 
-analytics = {"name": set(), "price": set(), "number": set(), "units": set()}
-for good in goods:
-    analytics["name"].add(good[1].get("name"))
-    analytics["price"].add(good[1].get("price"))
-    analytics["number"].add(good[1].get("number"))
-    analytics["units"].add(good[1].get("units"))
+analytics = {}
+for attribute in goods[0][1].keys():
+    analytics[attribute] = set()
+    for good in goods:
+        analytics[attribute].add(good[1].get(attribute))
 print(analytics)
