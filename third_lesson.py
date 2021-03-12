@@ -98,7 +98,7 @@ print(sum_func())
 
 
 def int_func(text):
-    return text.title()
+    return text.capitalize()
 
 
 def int_func_second(text):
@@ -110,9 +110,9 @@ def int_func_second(text):
 def my_func(sentence):
     result = ""
     for word in sentence.split():
-        result = result + int_func_second(word) + " "
+        result = result + int_func(word) + " "
     return result
 
 
-print(my_func("skjdf kjsdhfksdjhfs dksdf df sfhsskfhs  f"))
+print(my_func("skjdf.kjsdhfksdjhfs dksdf df sfhsskfhs  f"))
 
