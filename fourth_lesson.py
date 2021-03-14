@@ -8,7 +8,6 @@ from functools import reduce
 
 
 def salary_func():
-    print(sys.argv)
     return int(sys.argv[1]) * int(sys.argv[2]) + int(sys.argv[3])
 
 
