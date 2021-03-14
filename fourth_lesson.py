@@ -42,7 +42,8 @@ print(result_list)
 # четные числа от 100 до 1000 (включая границы). Необходимо получить результат вычисления произведения всех элементов списка.
 # Подсказка: использовать функцию reduce().
 
-
+multiply_elements = reduce(lambda x, y: x * y, [i for i in range(100, 1001) if i % 2 == 0])
+print(multiply_elements)
 
 #6. Реализовать два небольших скрипта:
 # а) итератор, генерирующий целые числа, начиная с указанного,
@@ -63,7 +64,7 @@ list_for_repeat = ["bjhjh", "09", 9, "jhjkgh", 8, ";fhgh"]
 start_time = time.time()
 for i in cycle(list_for_repeat):
     print(i)
-    if time.time() - start_time > 2:
+    if time.time() - start_time > 0:
         break
 
 # 7. Реализовать генератор с помощью функции с ключевым словом yield, создающим очередное значение. При вызове
