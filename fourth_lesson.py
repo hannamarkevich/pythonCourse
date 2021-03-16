@@ -8,7 +8,13 @@ from functools import reduce
 
 
 def salary_func():
-    return int(sys.argv[1]) * int(sys.argv[2]) + int(sys.argv[3])
+    hours = sys.argv[1]
+    rate = sys.argv[2]
+    try:
+        bonus = sys.argv[3]
+    except IndexError:
+        bonus = 0
+    return int(hours) * int(rate) + int(bonus)
 
 
 print(salary_func())
