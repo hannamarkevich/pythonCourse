@@ -1,0 +1,3 @@
+Ivanov 20000
+Sidorov 2000
+Markevich 30000
