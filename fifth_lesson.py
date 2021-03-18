@@ -47,8 +47,8 @@ print(f"Average salary is {salary_sum/workers_count}")
 # числительные должны заменяться на русские. Новый блок строк должен записываться в новый текстовый файл.
 
 translations = {"One": "Один", "Two": "Два", "Three": "Три", "Four": "Четыре"}
-numbers_file = open("numbers.txt", "r+")
-translations_file = open("translations.txt", "w+")
+numbers_file = open("numbers.txt", "r+", encoding="utf-8")
+translations_file = open("translations.txt", "w+", encoding="utf-8")
 
 for line in numbers_file:
     temp = line.split()
