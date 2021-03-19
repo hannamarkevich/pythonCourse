@@ -1,6 +1,7 @@
 # 1. Создать программно файл в текстовом формате, записать в него построчно данные, вводимые пользователем. Об
 # окончании ввода данных свидетельствует пустая строка.
 import json
+
 my_file = open("my_file.txt", "w+")
 while True:
     file_line = input("Input some information: ")
@@ -105,12 +106,14 @@ print(statistic)
 # [{"firm_1": 5000, "firm_2": 3000, "firm_3": 1000}, {"average_profit": 2000}]
 # Подсказка: использовать менеджеры контекста.
 
-firm_file = open("firms.txt", "r")
 average_profit = 0
 firms_count = 0
 profit_dict = {}
 profit_json = open("profit.json", "w")
-for line in firm_file:
+firms_file_content = ""
+with open('firms.txt', "r", encoding="utf-8") as fobj:
+    firms_file_content = fobj.read()
+for line in firms_file_content.split("\n"):
     firms_count += 1
     profit = int(line.split()[2]) - int(line.split()[3])
     profit_dict[line.split()[0]] = profit
@@ -120,7 +123,6 @@ for line in firm_file:
         print("No profit, sorry")
 profit_dict["average_profit"] = average_profit / firms_count
 json.dump(profit_dict, profit_json)
-firm_file.close()
 profit_json.close()
-
-
+f = ""
+print(f.split("\n")[0])
