@@ -52,8 +52,8 @@ numbers_file = open("numbers.txt", "r+", encoding="utf-8")
 translations_file = open("translations.txt", "w+", encoding="utf-8")
 
 for line in numbers_file:
-    temp = line.split()
-    translations_file.write(f"{translations.get(temp[0])} {(temp[1])} {temp[2]}\n")
+    temp = line.split()[0]
+    translations_file.write(line.replace(temp, translations[temp]))
 translations_file.close()
 numbers_file.close()
 
