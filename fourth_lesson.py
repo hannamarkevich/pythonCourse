@@ -94,3 +94,4 @@ def fact_generator(end_value):
 
 for el in fact_generator(100):
     print(el)
+
