@@ -173,4 +173,4 @@ class Handle(Stationary):
         print("Handle starts drawing")
 
 
-print(Handle("qwqw").draw())
+Handle("qwqw").draw()
