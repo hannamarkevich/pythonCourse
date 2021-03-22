@@ -47,7 +47,7 @@ class Road:
         self._width = width
 
     def mass_calculation(self, mass, thickness):
-        return self._width * self._length * thickness
+        return self._width * self._length * thickness * mass
 
 
 print(Road(3, 4).mass_calculation(5, 6))
