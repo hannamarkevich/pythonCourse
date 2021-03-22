@@ -91,14 +91,11 @@ print(f"Name {pos.get_full_name()}, salary {pos.get_total_income()}")
 class Car:
     SPEED_LIMIT = 0
 
-    def __init__(self, speed, color, name, is_police):
+    def __init__(self, speed, color, name):
         self.speed = speed
         self.color = color
         self.name = name
-        self.is_police = is_police
-
-    def go(self):
-        print("The Car starts to go")
+        self.is_police = ("Police" in str(self.__class__))
 
     def stop(self):
         print("The Car is stopped")
@@ -113,33 +110,24 @@ class Car:
 
 
 class SportCar(Car):
-    def __init__(self, speed, color, name):
-        super(SportCar, self).__init__(speed, color, name, False)
+    pass
 
 
 class TownCar(Car):
     SPEED_LIMIT = 60
 
-    def __init__(self, speed, color, name):
-        super(TownCar, self).__init__(speed, color, name, False)
-
 
 class WorkCar(Car):
     SPEED_LIMIT = 40
 
-    def __init__(self, speed, color, name):
-        super(WorkCar, self).__init__(speed, color, name, False)
-
 
 class PoliceCar(Car):
-    def __init__(self, speed, color, name):
-        super(PoliceCar, self).__init__(speed, color, name, True)
+    pass
 
 
 TownCar(61, "asa", "kd").show_speed()
-WorkCar(41, "asa", "kd").show_speed()
+WorkCar(678, "asa", "kd").show_speed()
 SportCar(1161, "asa", "kd").show_speed()
-
 
 # 5. Реализовать класс Stationery (канцелярская принадлежность). Определить в нем атрибут title (название) и метод draw (отрисовка). Метод выводит сообщение “Запуск отрисовки.”
 # Создать три дочерних класса Pen (ручка), Pencil (карандаш), Handle (маркер). В каждом из классов реализовать переопределение метода draw. Для каждого из классов методы должен
