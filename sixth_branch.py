@@ -3,7 +3,7 @@
 # 7 секунд, второго (желтый) — 2 секунды, третьего (зеленый) — на ваше усмотрение. Переключение между режимами должно осуществляться только в указанном
 # порядке (красный, желтый, зеленый). Проверить работу примера, создав экземпляр и вызвав описанный метод.
 # Задачу можно усложнить, реализовав проверку порядка режимов, и при его нарушении выводить соответствующее сообщение и завершать скрипт.
-'''
+
 import time
 
 
@@ -12,8 +12,9 @@ class TrafficLight:
     def __init__(self, color):
         self._color = color
 
-    def running(self):
-        while True:
+    def running(self, period):
+        start_time = time.time()
+        while time.time() - start_time < period:
             if self._color == "red":
                 timestamp = time.time()
                 while time.time() - timestamp < 7:
@@ -31,7 +32,7 @@ class TrafficLight:
                 self._color = "red"
 
 
-TrafficLight("yellow").running()'''
+TrafficLight("yellow").running(20)
 
 
 # 2. Реализовать класс Road (дорога), в котором определить атрибуты: length (длина), width (ширина). Значения данных атрибутов должны передаваться
