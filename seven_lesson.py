@@ -60,9 +60,9 @@ class Matrix:
 
 
 matrix = Matrix([[3, 6, 7], [67, 234, 2]])
-matrix1 = Matrix([[3, 6, 2], [67, 234, 0]])
-# print(matrix.full_add(matrix1))
-print(matrix + matrix1)
+matrix1 = Matrix([[3, 6, 2]])
+print(matrix.full_add(matrix1))
+print(matrix + Matrix([[0, 0, 0], [67, 234, 0]]))
 
 
 # 2. Реализовать проект расчета суммарного расхода ткани на производство одежды. Основная сущность (класс) этого проекта — одежда,
@@ -142,7 +142,7 @@ class Cell:
             raise Exception('Operation is impossible!')
 
     def __truediv__(self, other):
-        return Cell(self.numbers() // other.numbers())
+        return Cell(round((self.numbers() / other.numbers())))
 
     def __str__(self):
         result = " "
@@ -172,5 +172,6 @@ class Cell:
             print(str_to_print)
 
 
-print(str(Cell(3) + Cell("sdf")))
-(Cell(1000) / Cell(100)).make_order(7)
+print(Cell(3) + Cell("sdf"))
+(Cell(1003) / Cell(100)).make_order(7)
+Cell(-100) - Cell(2)
