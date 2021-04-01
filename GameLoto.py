@@ -3,25 +3,28 @@ import random
 
 class LottoCard:
 
-    @staticmethod
-    def get_three_random_position():
+    ROWS_NUMBER = 3
+    SPACES_IN_ROWS = 3
+    CELLS_IN_ROW = 9
+
+    def get_three_random_position(self):
         poses = set()
-        while len(poses) != 3:
-            poses.add(random.randrange(0, 9, 1))
+        while len(poses) != self.ROWS_NUMBER:
+            poses.add(random.randrange(0, self.CELLS_IN_ROW, 1))
         return poses
 
     def __init__(self):
         self.number_arr = []
         numbers = set()
-        while len(numbers) != 18:
+        while len(numbers) != (self.CELLS_IN_ROW - self.SPACES_IN_ROWS) * self.ROWS_NUMBER:
             numbers.add(random.randrange(1, 90, 1))
-        for k in range(3):
+        for k in range(self.ROWS_NUMBER):
             j = 0
             result = []
             poses = self.get_three_random_position()
-            arr = list(numbers)[6 * k:6 * k + 6]
+            arr = list(numbers)[(self.CELLS_IN_ROW - self.SPACES_IN_ROWS) * k:(self.CELLS_IN_ROW - self.SPACES_IN_ROWS) * k + (self.CELLS_IN_ROW - self.SPACES_IN_ROWS)]
             arr.sort()
-            for i in range(9):
+            for i in range(self.CELLS_IN_ROW):
                 if i not in poses:
                     result.append(arr[j])
                     j += 1
@@ -31,7 +34,7 @@ class LottoCard:
 
     def __str__(self):
         result = ""
-        for i in range(3):
+        for i in range(self.ROWS_NUMBER):
             result += "| "
             for j in range(9):
                 result += str(self.number_arr[i][j]).rjust(2) + " "
@@ -58,15 +61,15 @@ class LottoGame:
         return (self.selected_number in some_card.number_arr[0]) | (self.selected_number in some_card.number_arr[1]) | (self.selected_number in some_card.number_arr[2])
 
     def del_number(self, some_card):
-        for i in range(3):
+        for i in range(some_card.ROWS_NUMBER):
             if self.selected_number in some_card.number_arr[i]:
                 some_card.number_arr[i] = [el if el != self.selected_number else " " for el in some_card.number_arr[i]]
                 break
 
     @staticmethod
     def card_empty(card):
-        for i in range(3):
-            for j in range(9):
+        for i in range(card.ROWS_NUMBER):
+            for j in range(card.CELLS_IN_ROW):
                 if card.number_arr[i][j] != " ":
                     return False
         return True
